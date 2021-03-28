@@ -48,6 +48,7 @@ class ResetPassController extends Controller
      * Create a secret key
      * send secret key to the user's email
      * }
+     * 
      * function confirmPIN(){
      * write the sec key
      * Make sure that the sec key is true  
@@ -142,6 +143,7 @@ class ResetPassController extends Controller
         User::where('id', $id)->update(['password' => $newPassword]);
 
         // Delete sec key from DB
+        //ResetPassword::where('id',$id)->delete();
         DB::table('resetPasswords')->where('id', $id)->delete();
 
         //201 response
